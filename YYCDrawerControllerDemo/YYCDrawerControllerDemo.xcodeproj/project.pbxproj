@@ -15,6 +15,8 @@
 		1370EC061A28148E0029F631 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1370EC041A28148E0029F631 /* LaunchScreen.xib */; };
 		1370EC121A28148E0029F631 /* YYCDrawerControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1370EC111A28148E0029F631 /* YYCDrawerControllerDemoTests.m */; };
 		1370EC241A2815F50029F631 /* YYCDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1370EC231A2815F50029F631 /* YYCDrawerController.m */; };
+		1370EC281A295F870029F631 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1370EC271A295F870029F631 /* LeftViewController.m */; };
+		1370EC2B1A295FAE0029F631 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1370EC2A1A295FAE0029F631 /* RightViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,10 @@
 		1370EC111A28148E0029F631 /* YYCDrawerControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYCDrawerControllerDemoTests.m; sourceTree = "<group>"; };
 		1370EC221A2815F50029F631 /* YYCDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYCDrawerController.h; path = ../YYCDrawerController/YYCDrawerController.h; sourceTree = "<group>"; };
 		1370EC231A2815F50029F631 /* YYCDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYCDrawerController.m; path = ../YYCDrawerController/YYCDrawerController.m; sourceTree = "<group>"; };
+		1370EC261A295F870029F631 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		1370EC271A295F870029F631 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		1370EC291A295FAE0029F631 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		1370EC2A1A295FAE0029F631 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,10 @@
 				1370EC021A28148E0029F631 /* Images.xcassets */,
 				1370EC041A28148E0029F631 /* LaunchScreen.xib */,
 				1370EBF51A28148E0029F631 /* Supporting Files */,
+				1370EC261A295F870029F631 /* LeftViewController.h */,
+				1370EC271A295F870029F631 /* LeftViewController.m */,
+				1370EC291A295FAE0029F631 /* RightViewController.h */,
+				1370EC2A1A295FAE0029F631 /* RightViewController.m */,
 			);
 			path = YYCDrawerControllerDemo;
 			sourceTree = "<group>";
@@ -233,9 +243,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1370EBFE1A28148E0029F631 /* ViewController.m in Sources */,
+				1370EC281A295F870029F631 /* LeftViewController.m in Sources */,
 				1370EBFB1A28148E0029F631 /* AppDelegate.m in Sources */,
 				1370EC241A2815F50029F631 /* YYCDrawerController.m in Sources */,
 				1370EBF81A28148E0029F631 /* main.m in Sources */,
+				1370EC2B1A295FAE0029F631 /* RightViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

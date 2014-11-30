@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "YYCDrawerController.h"
+#import "LeftViewController.h"
+#import "RightViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    UIViewController *centerViewController=self.window.rootViewController;
+    LeftViewController *leftViewController=[[LeftViewController alloc]init];
+    RightViewController *rightViewController=[[RightViewController alloc]init];
+    YYCDrawerController *drawerController=[[YYCDrawerController alloc]initWithCenterViewController:centerViewController leftViewController:leftViewController rightViewController:rightViewController];
+    self.window.rootViewController=drawerController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
