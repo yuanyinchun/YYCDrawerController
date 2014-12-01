@@ -47,8 +47,8 @@
     NSParameterAssert(centerViewController);
     self=[super init];
     if (self) {
-        self.leftDrawerMaxWidth=280.0;
-        self.rightDrawerMaxWidth=230.0;
+        self.leftDrawerMaxWidth=230.0;
+        self.rightDrawerMaxWidth=200.0;
         self.currentDrawerSide=DrawerSideNone;
         [self setCenterViewController:centerViewController];
         [self setLeftViewController:leftViewController];
@@ -388,8 +388,17 @@
 #pragma mark - Open & Close Drawer
 -(void)toggleDrawer:(DrawerSide)drawerSide animated:(BOOL)animated completion:(void(^)(BOOL finished))completion
 {
-    
+    if (self.currentDrawerSide==DrawerSideNone) {
+        [self openDrawer:drawerSide animated:animated completion:completion];
+    }
+    else{
+        if (self.currentDrawerSide==drawerSide) {
+            [self closeDrawer:drawerSide animated:animated completion:completion];
+        }else
+            return;
+    }
 }
+
 -(void)openDrawer:(DrawerSide)drawerSide animated:(BOOL)animated completion:(void(^)(BOOL finished))completion
 {
     NSParameterAssert(drawerSide==DrawerSideLeft || drawerSide==DrawerSideRight);
