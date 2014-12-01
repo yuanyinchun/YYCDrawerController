@@ -123,9 +123,16 @@
 
 -(void)tapGestureHandler:(UITapGestureRecognizer *)tapGesture
 {
+    if (self.currentDrawerSide==DrawerSideNone) {
+        return;
+    }
+    CGRect visibleCenterRect=[self visibleCenterRect];
     CGPoint touchPoint=[tapGesture locationInView:self.centerContainerView];
-    
+    if (CGRectContainsPoint(visibleCenterRect, touchPoint)) {
+        [self closeDrawer:self.currentDrawerSide animated:YES completion:nil];
+    }
 }
+
 
 -(void)panGestureHandler:(UIPanGestureRecognizer *)panGesture
 {
@@ -187,9 +194,11 @@
                 
                 if (visibleWidth<CGRectGetWidth(frame)/2.0) {
                     [self closeDrawer:visibleDrawerSide animated:YES completion:nil];
+                    self.currentDrawerSide=DrawerSideNone;
                 }
                 else{
                     [self openDrawer:visibleDrawerSide animated:YES completion:nil];
+                    self.currentDrawerSide=visibleDrawerSide;
                 }
                 
                 [self resetDrawer:visibleDrawerSide==DrawerSideLeft? DrawerSideRight: DrawerSideLeft];
@@ -235,6 +244,24 @@
         default:
             break;
     }
+}
+
+-(CGRect)visibleCenterRect
+{
+    if (self.currentDrawerSide==DrawerSideNone) {
+        return self.centerContainerView.frame;
+    }
+    if (self.currentDrawerSide==DrawerSideLeft) {
+        CGRect centerContainerRect=self.centerContainerView.frame;
+        CGRect leftRect=self.leftViewController.view.frame;
+        return CGRectMake(CGRectGetMaxX(leftRect), CGRectGetMinY(centerContainerRect), CGRectGetWidth(centerContainerRect)-CGRectGetWidth(leftRect), CGRectGetHeight(centerContainerRect));
+    }
+    if (self.currentDrawerSide==DrawerSideRight) {
+        CGRect centerContainerRect=self.centerContainerView.frame;
+        CGRect rightRect=self.rightViewController.view.frame;
+        return CGRectMake(CGRectGetMinX(centerContainerRect), CGRectGetMinY(centerContainerRect), CGRectGetWidth(centerContainerRect)-CGRectGetWidth(rightRect), CGRectGetHeight(centerContainerRect));
+    }
+    return CGRectZero;
 }
 
 #pragma mark - Getter
