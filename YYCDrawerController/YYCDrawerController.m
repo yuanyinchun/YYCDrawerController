@@ -123,7 +123,8 @@
 
 -(void)tapGestureHandler:(UITapGestureRecognizer *)tapGesture
 {
-    NSLog(@"taped");
+    CGPoint touchPoint=[tapGesture locationInView:self.centerContainerView];
+    
 }
 
 -(void)panGestureHandler:(UIPanGestureRecognizer *)panGesture
@@ -142,7 +143,7 @@
             if (visibleDrawerSide==DrawerSideNone) {
                 if (translationPoint.x>0.0) {
                     visibleDrawerSide=DrawerSideLeft;
-                }else if (translationPoint.x>0.0){
+                }else if (translationPoint.x<0.0){
                     visibleDrawerSide=DrawerSideRight;
                 }
             }
